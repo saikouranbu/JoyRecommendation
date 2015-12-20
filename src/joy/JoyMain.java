@@ -3,6 +3,8 @@ package joy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class JoyMain {
 	public static void main(String[] args) {
@@ -27,6 +29,7 @@ public class JoyMain {
 			 * WebPage web1 = new WebPage(new URL(pageUrl1)); //
 			 * web1.setExpression("/utasuki/index.htm"); web1.run();
 			 */
+			historyRun(id1);
 
 			System.out.print("相手のページのURLを入力してください：");
 			// 相手のページのURL
@@ -37,6 +40,24 @@ public class JoyMain {
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
+		}
+	}
+
+	public void historyRun(String id){
+		String urlFirst = "https://www.joysound.com/utasuki/userpage/history/index.htm?usr=";
+		StringBuilder urlBuilder = new StringBuilder();
+		urlBuilder.append(urlFirst);
+		urlBuilder.append(id);
+		String url = urlBuilder.toString();
+
+		try {
+			WebPage web = new WebPage(new URL(url));
+			web.setExpression("span");
+			web.historyRun();
+		} catch (MalformedURLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+			return;
 		}
 	}
 }
