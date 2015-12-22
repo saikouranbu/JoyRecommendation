@@ -2,5 +2,56 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/selenium-java-2.48.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-el-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/cssparser-0.9.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/hamcrest-library-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/htmlunit-2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/htmlunit-core-js-2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/httpclient-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/httpcore-4.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/httpmime-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jasper-compiler-5.5.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jasper-compiler-jdt-5.5.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jasper-runtime-5.5.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-continuation-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-http-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-io-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-jmx-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-security-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-server-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-servlet-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-servlets-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jetty-util-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/jsp-api-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/nekohtml-1.9.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/netty-3.5.7.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/phantomjsdriver-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/sac-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/serializer-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/testng-6.9.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/websocket-api-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/websocket-client-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/websocket-common-9.2.13.v20150730.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/xalan-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
