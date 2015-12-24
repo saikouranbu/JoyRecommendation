@@ -2,9 +2,11 @@ package joy;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 /**
@@ -13,16 +15,15 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 public class PhantomJs {
 	public static void main(String[] args) {
         PhantomJs ph = create();
+        ArrayList<WebElement> list;
         ph.driver.get("https://www.joysound.com/utasuki/userpage/history/index.htm?usr=aaadbcf6d1d012bcc59cf1c3f92c0d53414d");
-        System.out.println(ph.driver.toString());
-        // Inpu要素を名前で検索します。
-        //WebElement element = driver.findElement(By.id("usk-block-link"));
-        // 検索キーワードを入力
-        //element.sendKeys("Cheese!");
-        // Submitします。WebDriverが自動的にFormを見つけます。
-        //element.submit();
-        // ページタイトルを確認します。
-        System.out.println("test");
+        int historyInt;
+        System.out.println(ph.driver.findElementByTagName("em").getText());
+        //System.out.println(ph.driver.getPageSource());
+        /*list = (ArrayList<WebElement>) ph.driver.findElementsByClassName("usk-block-link");
+        for(WebElement e : list){
+        	System.out.println(e.getText());
+        }*/
         ph.driver.quit();
         
         //System.out.println(element.getText());
