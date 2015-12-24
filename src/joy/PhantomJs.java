@@ -23,7 +23,8 @@ public class PhantomJs {
         //element.submit();
         // ページタイトルを確認します。
         System.out.println("test");
-        ph.driver.close();
+        ph.driver.quit();
+        
         //System.out.println(element.getText());
         //System.out.println("Page title is: " + driver.getTitle());
     }
