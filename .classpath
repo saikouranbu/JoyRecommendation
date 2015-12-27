@@ -53,5 +53,6 @@
 	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/乱舞/git/JoyRecommendation/libs/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/PostgreSQL/pgJDBC/postgresql-9.4-1200.jdbc4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

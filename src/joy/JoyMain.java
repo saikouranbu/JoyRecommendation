@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import org.openqa.selenium.WebElement;
 
@@ -13,6 +14,7 @@ public class JoyMain {
 	public static void main(String[] args) {
 		JoyMain main = new JoyMain();
 		main.run();
+		JoyDAO.getInstance().exit();
 	}
 
 	public void run() {
@@ -40,12 +42,12 @@ public class JoyMain {
 		}
 	}
 
-	public void historyRun(String id) {
+	public void historyRun(String userId) {
 		Thread th = new Thread();
 		String urlFirst = "https://www.joysound.com/utasuki/userpage/history/index.htm?usr=";
 		StringBuilder urlBuilder = new StringBuilder();
 		urlBuilder.append(urlFirst);
-		urlBuilder.append(id);
+		urlBuilder.append(userId);
 		String url = urlBuilder.toString();
 
 		PhantomJs ph = PhantomJs.create();
@@ -59,13 +61,13 @@ public class JoyMain {
 					.substring(0, historyStr.length() - 1);
 			int historyInt = Integer.parseInt(historyNum);
 
-			String songwordstitle, name, artist, relation;
-			WebElement nextButton;
+			String songUrl, id, songwordstitle, name, artist, relation;
+			WebElement ele;
+			Vector<Music> v;
+			Music m;
 			int j = 0;
 			int p = 0;
 			for (int i = 0; i < historyInt; i++, j++) {
-				th.sleep(waitTime);
-
 				if (i % 20 == 0 && i != 0) {
 					p++;
 					System.out.println("履歴" + p + "ページ目読み込み終了");
@@ -75,40 +77,53 @@ public class JoyMain {
 					th.sleep(waitTime);
 					j = 0;
 				}
+
+				historyList = (ArrayList<WebElement>) ph.getDriver()
+						.findElementsByClassName("usk-block-link");
+
 				try {
-					historyList = (ArrayList<WebElement>) ph.getDriver()
-							.findElementsByClassName("usk-block-link");
+					ele = historyList.get(j);
 				} catch (Exception e) {
 					break;
 				}
 
-				WebElement e = historyList.get(j);
-				e.click();
-				th.sleep(waitTime);
+				songUrl = ele.getAttribute("href");
+				id = songUrl.substring(41, songUrl.indexOf("?"));
+				v = JoyDAO.getInstance().select(id);
+				if (!v.isEmpty()) {
+					m = v.get(0);
+					System.out.println(id + "," + m.getName() + ","
+							+ m.getArtist() + "," + m.getRelation());
+				} else {
+					ele.click();
+					th.sleep(waitTime);
 
-				songwordstitle = ph
-						.getDriver()
-						.findElementByXPath(
-								"//div[@class='jp-cmp-song-words-title ng-binding']")
-						.getText();
-				name = songwordstitle.substring(0, songwordstitle.length() - 3);
-				name = name.substring(1, name.length() - 1);
-				artist = ph.getDriver()
-						.findElementByClassName("jp-cmp-table-column-001")
-						.getText();
-				try {
-					relation = ph
+					songwordstitle = ph
 							.getDriver()
 							.findElementByXPath(
-									"//div[@data-ng-repeat='tieup in detail.tieupList']")
+									"//div[@class='jp-cmp-song-words-title ng-binding']")
 							.getText();
-				} catch (Exception e1) {
-					relation = "";
+					name = songwordstitle.substring(0,
+							songwordstitle.length() - 3);
+					name = name.substring(1, name.length() - 1);
+					artist = ph.getDriver()
+							.findElementByClassName("jp-cmp-table-column-001")
+							.getText();
+					try {
+						relation = ph
+								.getDriver()
+								.findElementByXPath(
+										"//div[@data-ng-repeat='tieup in detail.tieupList']")
+								.getText();
+					} catch (Exception e1) {
+						relation = "";
+					}
+					JoyDAO.getInstance().insert(id, name, artist, relation);
+					System.out.println(name + "," + artist + "," + relation);
+					ph.getDriver().navigate().back();
+					th.sleep(waitTime);
 				}
-				System.out.println(name + "," + artist + "," + relation);
-				ph.getDriver().navigate().back();
-				// System.out.println(".");
-				// System.out.println(ph.getDriver().getPageSource());
+				// break;
 			}
 			System.out.println("履歴読み込み完了");
 
