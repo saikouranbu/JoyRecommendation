@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import org.openqa.selenium.WebElement;
 
 public class JoyMain {
+	private static long waitTime = 1000;
+
 	public static void main(String[] args) {
 		JoyMain main = new JoyMain();
 		main.run();
@@ -50,27 +52,39 @@ public class JoyMain {
 		ArrayList<WebElement> historyList;
 		ph.getDriver().get(url);
 		try {
-			th.sleep(500);
+			th.sleep(waitTime);
 			String historyStr = ph.getDriver().findElementByTagName("em")
 					.getText();
 			String historyNum = historyStr
 					.substring(0, historyStr.length() - 1);
 			int historyInt = Integer.parseInt(historyNum);
 
-						String songwordstitle, name, artist, relation;
+			String songwordstitle, name, artist, relation;
+			WebElement nextButton;
+			int j = 0;
+			int p = 0;
+			for (int i = 0; i < historyInt; i++, j++) {
+				th.sleep(waitTime);
 
-			for (int i = 0; i < 20; i++) {
-				th.sleep(500);
+				if (i % 20 == 0 && i != 0) {
+					p++;
+					System.out.println("履歴" + p + "ページ目読み込み終了");
+					ph.getDriver().get(
+							url + "&startIndex=" + (i + 1)
+									+ "&orderBy=0&sortOrder=desc");
+					th.sleep(waitTime);
+					j = 0;
+				}
+				try {
+					historyList = (ArrayList<WebElement>) ph.getDriver()
+							.findElementsByClassName("usk-block-link");
+				} catch (Exception e) {
+					break;
+				}
 
-				//System.out.println("0");
-				historyList = (ArrayList<WebElement>) ph.getDriver()
-						.findElementsByClassName("usk-block-link");
-
-				//System.out.println("1");
-				WebElement e = historyList.get(i);
-				//System.out.println("2");
+				WebElement e = historyList.get(j);
 				e.click();
-				//System.out.println("3");
+				th.sleep(waitTime);
 
 				songwordstitle = ph
 						.getDriver()
@@ -82,16 +96,21 @@ public class JoyMain {
 				artist = ph.getDriver()
 						.findElementByClassName("jp-cmp-table-column-001")
 						.getText();
-				relation = ph
-						.getDriver()
-						.findElementByXPath(
-								"//div[@data-ng-repeat='tieup in detail.tieupList']")
-						.getText();
+				try {
+					relation = ph
+							.getDriver()
+							.findElementByXPath(
+									"//div[@data-ng-repeat='tieup in detail.tieupList']")
+							.getText();
+				} catch (Exception e1) {
+					relation = "";
+				}
 				System.out.println(name + "," + artist + "," + relation);
 				ph.getDriver().navigate().back();
-				//System.out.println(".");
+				// System.out.println(".");
 				// System.out.println(ph.getDriver().getPageSource());
 			}
+			System.out.println("履歴読み込み完了");
 
 		} catch (InterruptedException e1) {
 			// TODO 自動生成された catch ブロック
