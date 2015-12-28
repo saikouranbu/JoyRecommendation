@@ -19,6 +19,8 @@ public class JoyMain {
 	private HashMap<String, Integer> artistMap; // 相手のアーティスト名一覧
 	private HashMap<String, Integer> relationMap; // 相手の関連情報一覧
 
+	private PhantomJs ph;
+
 	public static void main(String[] args) {
 		JoyMain main = new JoyMain();
 		main.run();
@@ -30,6 +32,9 @@ public class JoyMain {
 				System.in));
 		String pageUrl1, pageUrl2;
 		String id1, id2;
+
+		ph = PhantomJs.create();
+
 		nameSet = new HashSet<String>();
 		artistSet = new HashSet<String>();
 		relationSet = new HashSet<String>();
@@ -54,6 +59,8 @@ public class JoyMain {
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
+		} finally {
+			ph.quit();
 		}
 		System.out.println(nameSet);
 		System.out.println(artistSet);
@@ -71,7 +78,6 @@ public class JoyMain {
 		urlBuilder.append(userId);
 		String url = urlBuilder.toString();
 
-		PhantomJs ph = PhantomJs.create();
 		ArrayList<WebElement> historyList;
 		ph.getDriver().get(url);
 		try {
@@ -212,8 +218,6 @@ public class JoyMain {
 		} catch (InterruptedException e1) {
 			// TODO 自動生成された catch ブロック
 			e1.printStackTrace();
-		} finally {
-			ph.quit();
 		}
 	}
 }
