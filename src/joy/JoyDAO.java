@@ -41,6 +41,7 @@ public class JoyDAO {
 
 	public void exit() {
 		try {
+			connection.close();
 			prepStmt_S.close();
 			prepStmt_I.close();
 		} catch (Exception e) {
