@@ -16,9 +16,8 @@ public class Music {
 		this.name = name;
 		this.artist = artist;
 		this.relation = relation;
-		point = 0;
 	}
-	
+
 	/**
 	 * idを取得します。
 	 * @return id

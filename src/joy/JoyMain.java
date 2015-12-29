@@ -15,9 +15,9 @@ import java.util.Vector;
 import org.openqa.selenium.WebElement;
 
 public class JoyMain {
-	final private static long waitTime = 1000;
-	final private static int rankMaxNum = 10;
-	private String friendName;
+	final private static long waitTime = 1000; // ページ読み込み待ち時間。PhJSがシャットダウンされるときは長くする。
+	final private static int rankMaxNum = 10; // ランキングを何位まで表示させるか
+	private String friendName; // 相手のユーザ名
 	private HashSet<String> nameSet; // 自分の曲名一覧
 	private HashSet<String> artistSet; // 自分のアーティスト名一覧
 	private HashSet<String> relationSet; // 自分の関連情報一覧
@@ -479,7 +479,7 @@ public class JoyMain {
 				count++;
 				System.out.println(e.getValue() + "\t" + e.getKey());
 			}
-			if (count >= 10) {
+			if (count >= rankMaxNum) {
 				break;
 			}
 		}
@@ -500,7 +500,7 @@ public class JoyMain {
 				count++;
 				System.out.println(e.getValue() + "\t" + e.getKey());
 			}
-			if (count >= 10) {
+			if (count >= rankMaxNum) {
 				break;
 			}
 		}
@@ -521,7 +521,7 @@ public class JoyMain {
 				count++;
 				System.out.println(e.getValue() + "\t" + e.getKey());
 			}
-			if (count >= 10) {
+			if (count >= rankMaxNum) {
 				break;
 			}
 		}
@@ -543,7 +543,7 @@ public class JoyMain {
 		for (Entry<String, Integer> e : nameEntries) {
 			count++;
 			System.out.println(e.getValue() + "\t" + e.getKey());
-			if (count >= 10) {
+			if (count >= rankMaxNum) {
 				break;
 			}
 		}
@@ -562,7 +562,7 @@ public class JoyMain {
 		for (Entry<String, Integer> e : artistEntries) {
 			count++;
 			System.out.println(e.getValue() + "\t" + e.getKey());
-			if (count >= 10) {
+			if (count >= rankMaxNum) {
 				break;
 			}
 		}
@@ -581,7 +581,7 @@ public class JoyMain {
 		for (Entry<String, Integer> e : relationEntries) {
 			count++;
 			System.out.println(e.getValue() + "\t" + e.getKey());
-			if (count >= 10) {
+			if (count >= rankMaxNum) {
 				break;
 			}
 		}
