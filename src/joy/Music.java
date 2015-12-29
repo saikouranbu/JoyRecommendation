@@ -1,7 +1,6 @@
 package joy;
 
 public class Music {
-	private int point;
 	private String id;
 	private String name;
 	private String artist;
@@ -19,27 +18,7 @@ public class Music {
 		this.relation = relation;
 		point = 0;
 	}
-
-	public void plusPoint(int point){
-		this.point = this.point + point;
-	}
-
-	/**
-	 * pointを取得します。
-	 * @return point
-	 */
-	public int getPoint() {
-	    return point;
-	}
-
-	/**
-	 * pointを設定します。
-	 * @param point point
-	 */
-	public void setPoint(int point) {
-	    this.point = point;
-	}
-
+	
 	/**
 	 * idを取得します。
 	 * @return id
