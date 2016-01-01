@@ -143,17 +143,20 @@ public class JoyMain {
 				if (!v.isEmpty()) {
 					m = v.get(0);
 					if (userNum == 1) {
-						nameSet.add(m.getName());
+						nameSet.add(m.getName() + " // " + m.getArtist());
 						artistSet.add(m.getArtist());
 						if (!m.getRelation().equals("")) {
 							relationSet.add(m.getRelation());
 						}
 					} else {
-						if (nameMap.containsKey(m.getName())) {
-							nameMap.put(m.getName(),
-									nameMap.get(m.getName()) + 1);
+						if (nameMap.containsKey(m.getName() + " // "
+								+ m.getArtist())) {
+							nameMap.put(
+									m.getName() + " // " + m.getArtist(),
+									nameMap.get(m.getName() + " // "
+											+ m.getArtist()) + 1);
 						} else {
-							nameMap.put(m.getName(), 1);
+							nameMap.put(m.getName() + " // " + m.getArtist(), 1);
 						}
 						if (artistMap.containsKey(m.getArtist())) {
 							artistMap.put(m.getArtist(),
@@ -204,16 +207,17 @@ public class JoyMain {
 					}
 					JoyDAO.getInstance().insert(id, name, artist, relation);
 					if (userNum == 1) {
-						nameSet.add(name);
+						nameSet.add(name + " // " + artist);
 						artistSet.add(artist);
 						if (!relation.equals("")) {
 							relationSet.add(relation);
 						}
 					} else {
-						if (nameMap.containsKey(name)) {
-							nameMap.put(name, nameMap.get(name) + 1);
+						if (nameMap.containsKey(name + " // " + artist)) {
+							nameMap.put(name + " // " + artist,
+									nameMap.get(name + " // " + artist) + 1);
 						} else {
-							nameMap.put(name, 1);
+							nameMap.put(name + " // " + artist, 1);
 						}
 						if (artistMap.containsKey(artist)) {
 							artistMap.put(artist, artistMap.get(artist) + 1);
@@ -296,17 +300,20 @@ public class JoyMain {
 				if (!v.isEmpty()) {
 					m = v.get(0);
 					if (userNum == 1) {
-						nameSet.add(m.getName());
+						nameSet.add(m.getName() + " // " + m.getArtist());
 						artistSet.add(m.getArtist());
 						if (!m.getRelation().equals("")) {
 							relationSet.add(m.getRelation());
 						}
 					} else {
-						if (nameMap.containsKey(m.getName())) {
-							nameMap.put(m.getName(),
-									nameMap.get(m.getName()) + 5);
+						if (nameMap.containsKey(m.getName() + " // "
+								+ m.getArtist())) {
+							nameMap.put(
+									m.getName() + " // " + m.getArtist(),
+									nameMap.get(m.getName() + " // "
+											+ m.getArtist()) + 5);
 						} else {
-							nameMap.put(m.getName(), 5);
+							nameMap.put(m.getName() + " // " + m.getArtist(), 5);
 						}
 						if (artistMap.containsKey(m.getArtist())) {
 							artistMap.put(m.getArtist(),
@@ -357,16 +364,17 @@ public class JoyMain {
 					}
 					JoyDAO.getInstance().insert(id, name, artist, relation);
 					if (userNum == 1) {
-						nameSet.add(name);
+						nameSet.add(name + " // " + artist);
 						artistSet.add(artist);
 						if (!relation.equals("")) {
 							relationSet.add(relation);
 						}
 					} else {
-						if (nameMap.containsKey(name)) {
-							nameMap.put(name, nameMap.get(name) + 5);
+						if (nameMap.containsKey(name + " // " + artist)) {
+							nameMap.put(name + " // " + artist,
+									nameMap.get(name + " // " + artist) + 5);
 						} else {
-							nameMap.put(name, 5);
+							nameMap.put(name + " // " + artist, 5);
 						}
 						if (artistMap.containsKey(artist)) {
 							artistMap.put(artist, artistMap.get(artist) + 2);
@@ -466,7 +474,7 @@ public class JoyMain {
 
 	public void printScore() {
 		System.out.println("あなたが歌える" + friendName + "にウケると推定される曲ランキング\n");
-		System.out.println("評価Pt\t曲名");
+		System.out.println("評価Pt\t曲名 // アーティスト名");
 
 		List<Entry<String, Integer>> nameEntries = new ArrayList<Entry<String, Integer>>(
 				nameMap.entrySet());
@@ -532,7 +540,7 @@ public class JoyMain {
 
 	public void printScoreOnlyFriendData() {
 		System.out.println(friendName + "にウケると推定される曲ランキング\n");
-		System.out.println("評価Pt\t曲名");
+		System.out.println("評価Pt\t曲名 // アーティスト名");
 
 		List<Entry<String, Integer>> nameEntries = new ArrayList<Entry<String, Integer>>(
 				nameMap.entrySet());
