@@ -94,7 +94,6 @@ public class JoyMain {
 		ArrayList<WebElement> historyList;
 		ph.getDriver().get(url);
 		try {
-
 			th.sleep(waitTime);
 
 			if (userNum == 2) { // 相手のユーザネームを取得
@@ -111,12 +110,19 @@ public class JoyMain {
 			int historyInt = Integer.parseInt(historyNum);
 
 			String songUrl, id, songwordstitle, name, artist, relation;
-			WebElement ele;
 			Vector<Music> v;
+			ArrayList<String> musicURL = new ArrayList<String>();
 			Music m;
 			int j = 0;
 			int p = 0;
-			for (int i = 0; i < historyInt; i++, j++) {
+
+			historyList = (ArrayList<WebElement>) ph.getDriver()
+					.findElementsByClassName("usk-block-link");
+			for (WebElement e : historyList) {
+				musicURL.add(e.getAttribute("href"));
+			}
+
+			for (int i = 0; i < historyInt - 1; i++, j++) {
 				if (i % 20 == 0 && i != 0) {
 					p++;
 					System.out.println("履歴" + p + "ページ目読み込み終了");
@@ -124,20 +130,18 @@ public class JoyMain {
 							url + "&startIndex=" + (i + 1)
 									+ "&orderBy=0&sortOrder=desc");
 					th.sleep(waitTime);
+
+					historyList = (ArrayList<WebElement>) ph.getDriver()
+							.findElementsByClassName("usk-block-link");
+					musicURL.clear();
+					for (WebElement e : historyList) {
+						musicURL.add(e.getAttribute("href"));
+					}
 					j = 0;
 					// break;
 				}
 
-				historyList = (ArrayList<WebElement>) ph.getDriver()
-						.findElementsByClassName("usk-block-link");
-
-				try {
-					ele = historyList.get(j);
-				} catch (Exception e) {
-					break;
-				}
-
-				songUrl = ele.getAttribute("href");
+				songUrl = musicURL.get(j);
 				id = songUrl.substring(41, songUrl.indexOf("?"));
 				v = JoyDAO.getInstance().select(id);
 				if (!v.isEmpty()) {
@@ -176,7 +180,7 @@ public class JoyMain {
 					// System.out.println(id + "," + m.getName() + ","
 					// + m.getArtist() + "," + m.getRelation());
 				} else {
-					ele.click();
+					ph.getDriver().get(songUrl);
 					th.sleep(waitTime);
 
 					try {
@@ -234,8 +238,6 @@ public class JoyMain {
 						}
 					}
 					// System.out.println(name + "," + artist + "," + relation);
-					ph.getDriver().navigate().back();
-					th.sleep(waitTime);
 				}
 				// break;
 			}
@@ -258,7 +260,6 @@ public class JoyMain {
 		ArrayList<WebElement> favMusicList;
 		ph.getDriver().get(url);
 		try {
-
 			th.sleep(waitTime);
 
 			String favMusicStr = ph.getDriver().findElementByTagName("em")
@@ -268,12 +269,19 @@ public class JoyMain {
 			int favMusicInt = Integer.parseInt(favMusicNum);
 
 			String songUrl, id, songwordstitle, name, artist, relation;
-			WebElement ele;
 			Vector<Music> v;
+			ArrayList<String> musicURL = new ArrayList<String>();
 			Music m;
 			int j = 0;
 			int p = 0;
-			for (int i = 0; i < favMusicInt; i++, j++) {
+
+			favMusicList = (ArrayList<WebElement>) ph.getDriver()
+					.findElementsByClassName("usk-block-link");
+			for (WebElement e : favMusicList) {
+				musicURL.add(e.getAttribute("href"));
+			}
+
+			for (int i = 0; i < favMusicInt - 1; i++, j++) {
 				if (i % 20 == 0 && i != 0) {
 					p++;
 					System.out.println("マイうた" + p + "ページ目読み込み終了");
@@ -281,20 +289,18 @@ public class JoyMain {
 							url + "&startIndex=" + (i + 1)
 									+ "&orderBy=0&sortOrder=desc");
 					th.sleep(waitTime);
+
+					favMusicList = (ArrayList<WebElement>) ph.getDriver()
+							.findElementsByClassName("usk-block-link");
+					musicURL.clear();
+					for (WebElement e : favMusicList) {
+						musicURL.add(e.getAttribute("href"));
+					}
 					j = 0;
 					// break;
 				}
 
-				favMusicList = (ArrayList<WebElement>) ph.getDriver()
-						.findElementsByClassName("usk-block-link");
-
-				try {
-					ele = favMusicList.get(j);
-				} catch (Exception e) {
-					break;
-				}
-
-				songUrl = ele.getAttribute("href");
+				songUrl = musicURL.get(j);
 				id = songUrl.substring(41, songUrl.indexOf("?"));
 				v = JoyDAO.getInstance().select(id);
 				if (!v.isEmpty()) {
@@ -333,7 +339,7 @@ public class JoyMain {
 					// System.out.println(id + "," + m.getName() + ","
 					// + m.getArtist() + "," + m.getRelation());
 				} else {
-					ele.click();
+					ph.getDriver().get(songUrl);
 					th.sleep(waitTime);
 
 					try {
@@ -391,8 +397,6 @@ public class JoyMain {
 						}
 					}
 					// System.out.println(name + "," + artist + "," + relation);
-					ph.getDriver().navigate().back();
-					th.sleep(waitTime);
 				}
 				// break;
 			}
@@ -415,7 +419,6 @@ public class JoyMain {
 		ArrayList<WebElement> favArtistList;
 		ph.getDriver().get(url);
 		try {
-
 			th.sleep(waitTime);
 
 			String favArtistStr = ph.getDriver().findElementByTagName("em")
@@ -428,7 +431,7 @@ public class JoyMain {
 			WebElement ele;
 			int j = 0;
 			int p = 0;
-			for (int i = 0; i < favArtistInt; i++, j++) {
+			for (int i = 0; i < favArtistInt - 1; i++, j++) {
 				if (i % 20 == 0 && i != 0) {
 					p++;
 					System.out.println("マイアーティスト" + p + "ページ目読み込み終了");
