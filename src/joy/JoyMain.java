@@ -50,13 +50,13 @@ public class JoyMain {
 		try {
 			System.out.print("あなたのページのURLを入力してください：");
 			// 自分のページのURL
-			// https://www.joysound.com/utasuki/userpage/index.htm?usr=31355ec2a6046f5b67aa547bed58275a2a47
+			// https://www.joysound.com/utasuki/userpage/index.htm?usr=???
 			pageUrl1 = reader.readLine();
 			id1 = pageUrl1.substring(56, pageUrl1.length()); // URLからユーザIDを抽出
 
 			System.out.print("相手のページのURLを入力してください：");
 			// 相手のページのURL
-			// https://www.joysound.com/utasuki/userpage/index.htm?usr=aaadbcf6d1d012bcc59cf1c3f92c0d53414d
+			// https://www.joysound.com/utasuki/userpage/index.htm?usr=???
 			pageUrl2 = reader.readLine();
 			id2 = pageUrl2.substring(56, pageUrl2.length()); // URLからユーザIDを抽出
 
